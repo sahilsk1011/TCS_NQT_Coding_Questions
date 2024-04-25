@@ -1,0 +1,46 @@
+# Find first non-repeating element in a given Array of integers
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int firstNonRepeatingElement(int arr[], int n){
+  
+  //take all the elements in hash mutable
+  
+  unordered_map<int, int> mp;
+  
+  for(int i = 0; i<n; i++){
+    mp[arr[i]]++;
+  }
+  
+  
+  // traverse again and return the non repeating element
+  
+  for(int i = 0; i<n; i++){
+    if(mp[arr[i]]==1) return arr[i];
+  }
+  
+  return -1;
+}
+
+
+int main(){
+  
+  int n;
+  
+  cin>>n;
+  
+  int arr[n];
+  
+  //Take input of the elements for the array
+  
+  for(int i = 0;i<n;i++){
+    cin>>arr[i];
+  }
+  
+  cout<<firstNonRepeatingElement(arr,n);
+  
+  return 0;
+  
+}
